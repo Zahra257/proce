@@ -1,0 +1,49 @@
+ALGORITHM dotProduct_algo
+
+//Déclaration des variables
+VAR
+    v1,v2 : ARRAY_OF INTEGER[];
+
+
+//Déclaration de la fonction
+FUNCTION dotProduct(v1,v2 : ARRAY_OF INTEGER[]) : INTEGER
+VAR
+    i : INTEGER := 0;
+    produitS : INTEGER := 0;
+BEGIN
+    FOR i FROM 0 to v1.length-1 STEP 1 DO
+        produitS := produitS + (v1[i] * v2[i]);
+    END_FOR
+    RETURN produitS;
+END
+
+//Déclaration de la procédure
+PROCEDURE dotProduct(v1,v2 : ARRAY_OF INTEGER[]) 
+VAR
+    i : INTEGER := 0;
+    produitS : INTEGER := 0;
+BEGIN
+    FOR i FROM 0 to v1.length-1 STEP 1 DO
+        produitS := produitS + (v1[i] * v2[i]);
+    END_FOR
+    Write('produit scalaire égal', produitS);
+END
+
+// Algo principale
+BEGIN
+    Read(v1);
+    Read(v2);
+    // appel de la fonction
+    IF v1.length = v2.length DO
+        Write('produit scalaire égal', dotProduct(v1,v2));
+    ELSE 
+        Write('produit scalaire indéfini');
+    END_IF
+
+    //appel procédure
+    IF v1.length = v2.length DO
+        dotProduct(v1,v2);
+    ELSE 
+        Write('produit scalaire indéfini');
+    END_IF
+END
